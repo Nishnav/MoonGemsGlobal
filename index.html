@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moon Gems - Ethical Gemstone Trading</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo" onclick="scrollToTop(event)" aria-label="Return to top" title="Back to top">
+                <img src="https://www.genspark.ai/api/files/s/Uf8vdt4T?cache_control=3600" alt="Moon Gems" class="logo-icon">
+                <span class="logo-text" style="font-size: 32px !important; font-weight: 600 !important; color: #C8A86A !important;">Moon Gems</span>
+            </a>
+            <div class="nav-links">
+                <a href="#what-we-trade">What We Trade</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#how-we-work">How We Work</a>
+                <a href="#compliance">Compliance</a>
+                <a href="#contact">Contact</a>
+                <button class="whatsapp-btn" onclick="openWhatsApp('india')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                    </svg>
+                    WhatsApp Enquiry
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 4px;">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background">
+            <div class="gradient-overlay"></div>
+            
+            <!-- Wireframe Geometric Shapes -->\n            <svg class="wireframe-shapes" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+                <!-- Left side polygons -->
+                <polygon points="80,300 150,250 180,320 120,370" fill="none" stroke="rgba(200, 168, 106, 0.15)" stroke-width="1"/>
+                <polygon points="100,450 170,420 200,480 140,520" fill="none" stroke="rgba(200, 168, 106, 0.12)" stroke-width="1"/>
+                
+                <!-- Right side polygons -->
+                <polygon points="1750,200 1820,170 1850,240 1790,280" fill="none" stroke="rgba(200, 168, 106, 0.15)" stroke-width="1"/>
+                <polygon points="1700,450 1770,420 1800,490 1740,530" fill="none" stroke="rgba(200, 168, 106, 0.12)" stroke-width="1"/>
+                
+                <!-- Golden connecting lines -->
+                <line x1="150" y1="300" x2="400" y2="450" stroke="rgba(200, 168, 106, 0.08)" stroke-width="0.5"/>
+                <line x1="1750" y1="250" x2="1500" y2="400" stroke="rgba(200, 168, 106, 0.08)" stroke-width="0.5"/>
+                <line x1="200" y1="500" x2="400" y2="600" stroke="rgba(200, 168, 106, 0.08)" stroke-width="0.5"/>
+            </svg>
+            
+            <!-- Floating Gemstones - 3D Rendered with Glows -->
+            <!-- Light Blue Crystal Stone Top Left (Natural Crystal - Transparent) -->
+            <img src="https://sspark.genspark.ai/cfimages?u1=EX%2F6dvSs7Hm8k15QmRjsYcE%2BCrww6dP%2FrlugHzCOR%2BTp98%2FQCEPGd4x9fJ0NWCvQV8i18YHD7WeTXMYdnJLZx%2BMXqZGcJCPYd7esABnsPCphPxjBbAlCggNf6vUTJeNGj26txV0G0qhizqqidQFQ7zvJvn4TdtWdT4lJbSvrkefH5Vd%2BWHgPXU6GGMwcwToIGXLV3TzEDDfcEEpPzmlU3t%2FqEb%2BHpFOYAI%2FbEhYR4xxOChzJK%2BZq7a8KuGtxUUDg%2FdPZmmbgeI2WPjIHtzce0BSEZ0Wk6Ad5deTunUKX5yRC3AqVuZimLrasCu%2B7SvAM8gYuPokrRprYmm5OLL7XfaGn90LmbRuaJx5QIM%2BuirkIk8F9jpPBou2vxF%2FlO2mcFQ%3D%3D&u2=5eFGcGBnNxUtMggb&width=2560" alt="Light Blue Crystal" class="floating-gem gem-7">
+            
+            <!-- Yellow Citrine Crystal Left Side (LUXURY - Natural Crystal - Transparent PNG) -->
+            <img src="https://sspark.genspark.ai/cfimages?u1=s0nWVmK6qvuats5iJxVesFG1KW64QXVSOB1DSChPjqlYLzeUkZxEGb5PJ%2BTbsCFttRHBGU5wQ4l9f2Jtm6E3gxgvpVV%2B2F3Sbw2mWnX69aLh3Thh97XDqIKPmZha8GYPSGVBQylGQkYkSQZd2sg37YjWkrWn2tCcj1U2KoDfC6Gdl3Gn0B4RbOB%2BLPIlNuHSFsv3YKmRpX3L%2FuyQlX5mNK%2FmJQ7sHeS5Zn3CJpVxu3DLyS8u%2FuR0Ex7HAf53%2FDAy&u2=cvIMoyjpImGdkyAL&width=2560" alt="Yellow Citrine Crystal" class="floating-gem gem-1">
+            
+            <!-- Green Emerald Crystal Left-Center (Natural Crystal - Transparent PNG) -->
+            <img src="https://sspark.genspark.ai/cfimages?u1=Qji594EpGCByh1xGnZmrwg6r49%2F9Jf55PAL13B%2Fo3IQSbZAloLsHXOhFvexX6QJcEzuB8VOKewXSB62bcCpTEzTbripDjqTQE%2F2iC%2FmITDB53qAoR8e10L3bRSvAc%2B2ui4oS9kk5YA%2BoaSTJy2NBPf3GhpNuYR%2F4RTsp%2Fg3tNdbeNmGD8rAbWIHcL1IO4MsfTu4WSHwObmxi50d0aoOSwX9dgAmIl1rMuoztSod1RbQqH7SZYl1u1v4RgkWFigruj5yy4opEydMCexaPmJ7RIVBDis5hjsOEskW0cR9pNRTyJkyp7CWpP9%2B%2BRQc%3D&u2=ZO3kM%2FN%2BG78SrwR7&width=2560" alt="Green Emerald Crystal" class="floating-gem gem-2">
+            
+            <!-- Ruby/Pink Right Side -->
+            <img src="https://sspark.genspark.ai/cfimages?u1=ROsF2V2H50n2Q7lsPOD6x%2BGwgD%2FUIFJnodNCMH3s%2FqIN0z5QLZc79u53qVfr30Cep%2F7fglypnCa2%2BA1WIWIYdFXq%2B5WnZOqMDyVCemvAs3DVFfiDdU2rJPKtxFE21BygR47GUt%2BcC%2BaDnJgfXBEtIWr9iTMgkUuXf7XdExn%2Fv9ao9IdDzuJN%2FTj7mA4Zswj8skFmaDFvR5pkNkn%2B6T%2FO8rUatqxgHdZTisUJTlaM%2BiDunBOQ3p9iSsAhoPic6%2FlQyeU7RTkLt7VNWZVzpm4l%2Fy76feE8%2FMr%2FzKhG&u2=LX3fU8CSY2mLWphH&width=2560" alt="Ruby Red" class="floating-gem gem-3">
+            
+            <!-- Pink Gemstone Right-Bottom -->
+            <img src="https://sspark.genspark.ai/cfimages?u1=yKBRDI0snRUVyVVZvNtFWn1QK8EIVm33Jt8uz551BUNHG3omCYzDlhuWYoaoK3NPBgDwiGBgrjKlnZHIAJX19gHppx4%2Fg71DWw2bgKCyDwPAJMlJRYrHZx%2FayKH4m3A6PPRpBDuR61PIaBU3%2BBDUyznwvduG%2BIzWK%2B1ngtoM7eZlM9rj5wLozes7Ob1TuGxyj2BXyZ9xOkkaomU%2FQe54hsFrul874Zv1B03bkxptvL2Z1Jw%2FACGrGA%3D%3D&u2=7%2B3W8HBAG2INNNEb&width=2560" alt="Pink Gem" class="floating-gem gem-4">
+            
+            <!-- Yellow Sapphire Right-Top -->
+            <img src="https://sspark.genspark.ai/cfimages?u1=oc9BwoKOtovfG4Fd0NQIhn2M76%2BV9kuwmd2OGPI9GVGXXXmLAzkviZ0iZqXwdR3%2FXk%2FhnyyfZ0lNV0bRPPgCcKc4lt%2BuOraKK1B7UFeU6KXqnCWMK1JktEnTPnUlBKD6sCXhQfRkFg8G9SJfe0qSkX1a3X1BXm6%2B%2B3HRMH53oWC0FCYI4T0B1KuDNEG%2BcsgnZpqRdMYuxJFFhQeA%2Bx0%3D&u2=w8BYDvYvarVfsemC&width=2560" alt="Yellow Sapphire" class="floating-gem gem-5">
+            
+            <!-- Red Ruby Right-Top -->
+            <img src="https://sspark.genspark.ai/cfimages?u1=guctrh32%2Fc9BRWj6n%2F6eQX1p43nTNjcPBDT4G%2FcI9SkBsOPmKnnP3qN41yT42ZZXVoEZUSd19D3tW2EfNYrSrXotA7cjziazLeS6YWt9qj0pfsg4MM8dF5WdDCj1efMm63cQkIzWeVlxOIVric9yMgGlFDC8sJEhOqnRa0PamdzELjFrEYvrttYlRwuH5PZMHM%2Fi3rID%2FPEDQ%2FxqJNKAKZ361McgLKw%2FYMlRNqsEIHc%3D&u2=%2FuraM%2BHUz3KSRU6K&width=2560" alt="Red Ruby" class="floating-gem gem-6">
+            
+            <!-- Globe Element -->
+            <div class="globe-container">
+                <svg class="connection-lines" width="300" height="300" viewBox="0 0 300 300">
+                    <path d="M 150 150 L 50 50" stroke="rgba(200, 168, 106, 0.3)" stroke-width="1" fill="none"/>
+                    <path d="M 150 150 L 250 50" stroke="rgba(200, 168, 106, 0.3)" stroke-width="1" fill="none"/>
+                    <path d="M 150 150 L 250 250" stroke="rgba(200, 168, 106, 0.3)" stroke-width="1" fill="none"/>
+                    <circle cx="50" cy="50" r="3" fill="rgba(200, 168, 106, 0.6)"/>
+                    <circle cx="250" cy="50" r="3" fill="rgba(200, 168, 106, 0.6)"/>
+                    <circle cx="250" cy="250" r="3" fill="rgba(200, 168, 106, 0.6)"/>
+                </svg>
+                <img src="https://sspark.genspark.ai/cfimages?u1=Uwzf%2F16%2F6IFjaVxiaW%2BdvyygLt2%2BlqfZY%2B35tcR6csgAlCHXclo6hvImXzRBAmNJPfBIHqsIEXUtg%2Bg0diXHQtrB6%2BWyC%2Fah%2BzIKIhd34ecGpISlQp%2BED4a1j6KjkTKSRGHbwBq31ebm9cJCnN2fzIEUxKSmY%2F9DBIYI5aPXarl5s89kn3ZigleZ%2B%2FPH6WyBOzfCdUTeEQdHhvA%2FMQ%3D%3D&u2=vnL0hm4Wk%2F%2BXXyDX&width=2560" alt="Global Trade" class="globe-image">
+            </div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="hero-badge">Rathnapura · Sri Lanka · Global Trade</div>
+            <h1 class="hero-title">Moon Gems</h1>
+            <p class="hero-subtitle">Ethical gemstone trading from Rathnapura to the world.</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="openWhatsApp('india')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                    </svg>
+                    WhatsApp Enquiry
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 4px;">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <button class="btn btn-outline" onclick="openContactModal()">Request Availability</button>
+            </div>
+            <p class="hero-footer">Serious trade enquiries only • Discreet execution • Long-term partnerships</p>
+        </div>
+    </section>
+
+    <!-- Trust Pillars -->
+    <section class="trust-pillars">
+        <div class="container">
+            <div class="pillars-grid">
+                <div class="pillar-card">
+                    <div class="pillar-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                            <path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                        </svg>
+                    </div>
+                    <h3>Source Advantage</h3>
+                    <p>Direct access to Sri Lanka's finest gemstone networks, including rough and polished stones.</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                    </div>
+                    <h3>Integrity & Compliance</h3>
+                    <p>Transparent trade practices aligned with export regulations and international standards.</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="2" y1="12" x2="22" y2="12"></line>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                        </svg>
+                    </div>
+                    <h3>Global Reach</h3>
+                    <p>Supplying dealers, manufacturers, and collectors across the Middle East, Asia, and Europe.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <h2 class="section-title">Our Story</h2>
+            <p class="about-text">
+                Moon Gems is a Sri Lanka–based gemstone trading company rooted in Rathnapura — the island's historic gem capital.
+                We specialize exclusively in gemstone trading, working closely with trusted local suppliers and international buyers.
+                Our focus is on long-term relationships, accurate valuation, and discreet execution.
+            </p>
+        </div>
+    </section>
+
+    <!-- What We Trade Section -->
+    <section id="what-we-trade" class="what-we-trade">
+        <div class="container">
+            <h2 class="section-title">What We Trade</h2>
+            <div class="trade-grid">
+                <div class="trade-card">
+                    <h3>Rough Gemstones</h3>
+                    <p>Sapphires, rubies, spinels, and select rare material sourced directly from trusted networks. Ideal for dealers and manufacturers seeking margin and flexibility.</p>
+                </div>
+                <div class="trade-card">
+                    <h3>Cut & Polished Stones</h3>
+                    <p>Certified and non-certified stones selected for color, clarity, and market demand. Available for wholesale and private acquisition.</p>
+                </div>
+            </div>
+
+            <!-- Our Specialties -->
+            <div class="sapphire-gallery">
+                <h3 class="gallery-title">Our Specialties</h3>
+                <p class="gallery-subtitle">
+                    Representative sapphire categories we specialize in. Browse our current inventory with detailed listings in the gallery below.
+                </p>
+                <div class="gallery-grid">
+                    <div class="gallery-item specialty-item">
+                        <img src="https://sspark.genspark.ai/cfimages?u1=Qnt2eB%2Bg%2BJ9q9Jgfy%2FFDU67y%2Bj2hML%2FxTphFBokf2ZIeGXfl1jw2VtDpBh1CLmevA5yw1iZGW%2B84Ma0mlF0E%2Bvhb%2BzqrWDLDwJSXoMuCJ0vioCtOcDhKREZHtZASRSPMn3qbFylo2fkeFKJsQFtymO%2F4XFQZOQcsZx5G%2BfV6SGdVNZdmbUe4vTVqCNxtgLvQg22EkFey33p6sFPoC%2BI%3D&u2=1qZNJgR5T0392XVu&width=2560" alt="Royal Blue Sapphires" class="specialty-image">
+                        <div class="specialty-overlay">
+                            <h4>Royal Blue Sapphires</h4>
+                            <p>Premium Ceylon blues</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item specialty-item">
+                        <img src="https://sspark.genspark.ai/cfimages?u1=nKfrt5mH3YlswKd4DkHbbKmmK%2FYVtyrdZW0Xh83h8kobioVBK6ecry0p6E6nhTjSQiJerjIfiorUxlwAO4HeTuAKNy8VgC7t57JBOs%2BXZygzwZnKm8iE4bCl%2BASWcKnfw7c4xrzTSK7JvPoWBdFS9dykzC6gH5Mpli%2F2%2BPqglinXC4A8XjlalwElkAGH5XlvIJaWWYwPoy9f3Dmv&u2=npxh%2BSLiYAWQLYFX&width=2560" alt="Pink Sapphires" class="specialty-image">
+                        <div class="specialty-overlay">
+                            <h4>Pink Sapphires</h4>
+                            <p>Rare padparadscha tones</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item specialty-item">
+                        <img src="https://sspark.genspark.ai/cfimages?u1=oc9BwoKOtovfG4Fd0NQIhn2M76%2BV9kuwmd2OGPI9GVGXXXmLAzkviZ0iZqXwdR3%2FXk%2FhnyyfZ0lNV0bRPPgCcKc4lt%2BuOraKK1B7UFeU6KXqnCWMK1JktEnTPnUlBKD6sCXhQfRkFg8G9SJfe0qSkX1a3X1BXm6%2B%2B3HRMH53oWC0FCYI4T0B1KuDNEG%2BcsgnZpqRdMYuxJFFhQeA%2Bx0%3D&u2=w8BYDvYvarVfsemC&width=2560" alt="Yellow Sapphires" class="specialty-image">
+                        <div class="specialty-overlay">
+                            <h4>Yellow Sapphires</h4>
+                            <p>Vibrant golden hues</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="view-gallery-cta">
+                    <a href="#gallery" class="btn btn-outline">
+                        View Current Inventory
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 8px;">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery-section">
+        <div class="container">
+            <h2 class="section-title">Our Collection</h2>
+            <p class="gallery-subtitle">
+                Curated selection of premium gemstones. Updated weekly with new arrivals.
+            </p>
+            
+            <!-- Category Filter -->
+            <div class="gallery-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="sapphires">Sapphires</button>
+                <button class="filter-btn" data-filter="rubies">Rubies</button>
+                <button class="filter-btn" data-filter="emeralds">Emeralds</button>
+                <button class="filter-btn" data-filter="mixed">Mixed</button>
+            </div>
+            
+            <!-- Gallery Grid -->
+            <div id="gallery-grid" class="gallery-grid">
+                <!-- Gallery items will be loaded here dynamically via gallery.js -->
+                <div class="gallery-loading">
+                    <div class="loading-spinner"></div>
+                    <p>Loading gallery...</p>
+                </div>
+            </div>
+            
+            <!-- Pagination -->
+            <div id="pagination" class="pagination-container"></div>
+        </div>
+    </section>
+    
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="">
+            <div class="lightbox-info">
+                <h3 id="lightbox-title"></h3>
+                <p class="lightbox-status" id="lightbox-status"></p>
+                <p id="lightbox-desc"></p>
+                <button class="btn btn-primary" onclick="closeLightbox(); openContactModal();">
+                    Request Availability
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- How We Work Section -->
+    <section id="how-we-work" class="how-we-work">
+        <div class="container">
+            <h2 class="section-title">How We Work</h2>
+            <ol class="process-list">
+                <li><strong>1.</strong> Requirement discussion and buyer alignment</li>
+                <li><strong>2.</strong> Stone sourcing and shortlisting</li>
+                <li><strong>3.</strong> Visuals, pricing, and certification (where required)</li>
+                <li><strong>4.</strong> Secure transaction and export documentation</li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- Compliance Section -->
+    <section id="compliance" class="compliance-section">
+        <div class="container">
+            <h2 class="section-title">Compliance & Disclosure</h2>
+            <p class="compliance-text">
+                Moon Gems operates as a gemstone trading company based in Sri Lanka. We adhere to applicable local regulations and support export documentation in line with international trade requirements.
+            </p>
+            <div class="address-box">
+                <strong>Registered Address</strong><br>
+                Moon Gems Pvt Ltd<br>
+                No. 9, Abeyraja Mawatha,<br>
+                Godigamuwa, Rathnapura,<br>
+                Sri Lanka
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Connect With Us</h2>
+            <p class="contact-description">
+                Serious trade enquiries only. All discussions are handled with strict discretion and professional confidentiality. 
+                Information shared by buyers and partners is treated as private and is never disclosed without consent.
+            </p>
+            <div class="contact-buttons">
+                <button class="btn btn-large btn-primary" onclick="openWhatsApp('india')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                    </svg>
+                    WhatsApp India (+91 9632420706)
+                </button>
+                <button class="btn btn-large btn-primary" onclick="openWhatsApp('srilanka')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                    </svg>
+                    WhatsApp Sri Lanka (+94 711 789 886)
+                </button>
+            </div>
+            <p class="email-text">Email: <a href="mailto:trade@moongemsglobal.com">trade@moongemsglobal.com</a></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Moon Gems Pvt Ltd. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Modal -->
+    <div id="whatsappModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeWhatsAppModal()">&times;</span>
+            <h2 class="modal-title">Choose Your Contact Method</h2>
+            <p class="modal-subtitle">Both numbers monitored 24/7 for trade enquiries</p>
+            
+            <div class="whatsapp-options">
+                <!-- India Contact -->
+                <div class="whatsapp-card">
+                    <div class="country-flag">🇮🇳</div>
+                    <h3>India Office</h3>
+                    <p class="phone-number">+91 9632420706</p>
+                    <div class="qr-code">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://wa.me/919632420706?text=Hello%20Moon%20Gems,%20I%20am%20enquiring%20regarding%20gemstone%20availability%20for%20trade." alt="India WhatsApp QR">
+                    </div>
+                    <button class="btn btn-primary btn-whatsapp" onclick="openWhatsAppDirect('919632420706')">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                        </svg>
+                        Click to Chat
+                    </button>
+                </div>
+
+                <!-- Sri Lanka Contact -->
+                <div class="whatsapp-card">
+                    <div class="country-flag">🇱🇰</div>
+                    <h3>Sri Lanka Office</h3>
+                    <p class="phone-number">+94 711 789 886</p>
+                    <div class="qr-code">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://wa.me/94711789886?text=Hello%20Moon%20Gems,%20I%20am%20enquiring%20regarding%20gemstone%20availability%20for%20trade." alt="Sri Lanka WhatsApp QR">
+                    </div>
+                    <button class="btn btn-primary btn-whatsapp" onclick="openWhatsAppDirect('94711789886')">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                        </svg>
+                        Click to Chat
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Form Modal -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content modal-content-form">
+            <span class="modal-close" onclick="closeContactModal()">&times;</span>
+            <h2 class="modal-title">Request Availability</h2>
+            <p class="modal-subtitle">Share your requirements and we'll respond within 24 hours</p>
+            
+            <form id="contactForm" class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Your Name *</label>
+                        <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required placeholder="your@email.com">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+1 234 567 8900">
+                    </div>
+                    <div class="form-group">
+                        <label for="gemstone">Gemstone Interest</label>
+                        <select id="gemstone" name="gemstone">
+                            <option value="">Select gemstone type</option>
+                            <option value="sapphires">Sapphires</option>
+                            <option value="rubies">Rubies</option>
+                            <option value="emeralds">Emeralds</option>
+                            <option value="mixed">Mixed/Multiple</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Your Message *</label>
+                    <textarea id="message" name="message" required rows="5" placeholder="Please describe your requirements, quantity, quality specifications, and timeline..."></textarea>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary btn-submit">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                        </svg>
+                        Send Enquiry
+                    </button>
+                    <p class="form-note">We respect your privacy. Your information is secure.</p>
+                </div>
+            </form>
+            
+            <div id="formSuccess" class="form-message form-success" style="display: none;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+                <h3>Message Sent Successfully!</h3>
+                <p>Thank you for your enquiry. We'll respond within 24 hours.</p>
+            </div>
+            
+            <div id="formError" class="form-message form-error" style="display: none;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="15" y1="9" x2="9" y2="15"></line>
+                    <line x1="9" y1="9" x2="15" y2="15"></line>
+                </svg>
+                <h3>Oops! Something went wrong</h3>
+                <p>Please try again or contact us directly at trade@moongemsglobal.com</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery JavaScript -->
+    <script src="js/gallery.js"></script>
+    
+    <!-- Main JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>
