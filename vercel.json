@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.moongemsglobal.com"
+        }
+      ],
+      "destination": "https://moongemsglobal.com/:path*",
+      "permanent": true
+    }
+  ]
+}
