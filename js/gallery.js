@@ -10,33 +10,44 @@ document.addEventListener('DOMContentLoaded', function() {
     setupLightbox();
 });
 
-// Load gallery items from API
+// Load gallery items from static JSON file
 async function loadGallery(filter = 'all', page = 1) {
     try {
-        // Build API URL
-        let apiUrl = `tables/gallery?page=${page}&limit=${itemsPerPage}&sort=-created_at`;
-        
-        // Add category filter if not 'all'
-        if (filter !== 'all') {
-            // Capitalize first letter to match schema options (Sapphires, Rubies, Emeralds)
-            const capitalizedFilter = filter.charAt(0).toUpperCase() + filter.slice(1);
-            apiUrl += `&search=${capitalizedFilter}`;
-        }
-
         // Show loading state
         const grid = document.getElementById('gallery-grid');
         grid.innerHTML = '<div class="loading">Loading gallery...</div>';
 
-        // Fetch data from API
-        const response = await fetch(apiUrl);
+        // Fetch data from static JSON file
+        const response = await fetch('data/gallery.json');
+        if (!response.ok) {
+            throw new Error('Failed to load gallery data');
+        }
         const data = await response.json();
 
+        // Filter by category if needed
+        let filteredItems = data.data;
+        if (filter !== 'all') {
+            const capitalizedFilter = filter.charAt(0).toUpperCase() + filter.slice(1);
+            filteredItems = data.data.filter(item => item.category === capitalizedFilter);
+        }
+
+        // Apply pagination (client-side)
+        const startIndex = (page - 1) * itemsPerPage;
+        const endIndex = startIndex + itemsPerPage;
+        const paginatedItems = filteredItems.slice(startIndex, endIndex);
+
         // Render gallery items
-        renderGallery(data.data);
+        renderGallery(paginatedItems);
         
         // Update pagination if needed
-        if (data.total > itemsPerPage) {
-            renderPagination(data.total, data.page, data.limit);
+        if (filteredItems.length > itemsPerPage) {
+            renderPagination(filteredItems.length, page, itemsPerPage);
+        } else {
+            // Clear pagination if not needed
+            const paginationContainer = document.getElementById('pagination');
+            if (paginationContainer) {
+                paginationContainer.innerHTML = '';
+            }
         }
 
     } catch (error) {
