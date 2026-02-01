@@ -97,45 +97,91 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Contact Form Submission (using mailto as fallback)
+    // Contact Form Submission (Formspree Integration)
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Get form data
+            // Get form action URL (Formspree endpoint)
+            const formAction = contactForm.getAttribute('action');
+            
+            // Check if Formspree ID is configured
+            if (!formAction || formAction.includes('YOUR_FORMSPREE_ID')) {
+                // Fallback to mailto if Formspree not configured
+                const formData = new FormData(contactForm);
+                const data = {
+                    name: formData.get('name'),
+                    email: formData.get('email'),
+                    phone: formData.get('phone') || 'Not provided',
+                    gemstone: formData.get('gemstone') || 'Not specified',
+                    message: formData.get('message')
+                };
+                
+                const subject = encodeURIComponent(`Gemstone Enquiry from ${data.name}`);
+                const body = encodeURIComponent(
+                    `Name: ${data.name}\n` +
+                    `Email: ${data.email}\n` +
+                    `Phone: ${data.phone}\n` +
+                    `Gemstone Interest: ${data.gemstone}\n\n` +
+                    `Message:\n${data.message}`
+                );
+                
+                const mailtoLink = `mailto:trade@moongemsglobal.com?subject=${subject}&body=${body}`;
+                window.location.href = mailtoLink;
+                
+                // Show success message
+                document.getElementById('contactForm').style.display = 'none';
+                document.getElementById('formSuccess').style.display = 'block';
+                
+                setTimeout(() => {
+                    closeContactModal();
+                }, 3000);
+                
+                return;
+            }
+            
+            // Submit to Formspree
             const formData = new FormData(contactForm);
-            const data = {
-                name: formData.get('name'),
-                email: formData.get('email'),
-                phone: formData.get('phone') || 'Not provided',
-                gemstone: formData.get('gemstone') || 'Not specified',
-                message: formData.get('message')
-            };
             
-            // Create mailto link as fallback
-            const subject = encodeURIComponent(`Gemstone Enquiry from ${data.name}`);
-            const body = encodeURIComponent(
-                `Name: ${data.name}\n` +
-                `Email: ${data.email}\n` +
-                `Phone: ${data.phone}\n` +
-                `Gemstone Interest: ${data.gemstone}\n\n` +
-                `Message:\n${data.message}`
-            );
-            
-            const mailtoLink = `mailto:trade@moongemsglobal.com?subject=${subject}&body=${body}`;
-            
-            // Open mailto and show success
-            window.location.href = mailtoLink;
-            
-            // Show success message
-            document.getElementById('contactForm').style.display = 'none';
-            document.getElementById('formSuccess').style.display = 'block';
-            
-            // Auto-close after 3 seconds
-            setTimeout(() => {
-                closeContactModal();
-            }, 3000);
+            fetch(formAction, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Success
+                    document.getElementById('contactForm').style.display = 'none';
+                    document.getElementById('formSuccess').style.display = 'block';
+                    
+                    // Auto-close after 3 seconds
+                    setTimeout(() => {
+                        closeContactModal();
+                    }, 3000);
+                } else {
+                    // Error
+                    response.json().then(data => {
+                        document.getElementById('contactForm').style.display = 'none';
+                        document.getElementById('formError').style.display = 'block';
+                        
+                        setTimeout(() => {
+                            closeContactModal();
+                        }, 5000);
+                    });
+                }
+            })
+            .catch(error => {
+                // Network error
+                document.getElementById('contactForm').style.display = 'none';
+                document.getElementById('formError').style.display = 'block';
+                
+                setTimeout(() => {
+                    closeContactModal();
+                }, 5000);
+            });
         });
     }
 
