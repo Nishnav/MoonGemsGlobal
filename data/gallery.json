@@ -1,225 +1,106 @@
-// Gallery Management with RESTful Table API
-let currentFilter = 'all';
-let currentPage = 1;
-const itemsPerPage = 9;
-
-// Initialize gallery on page load
-document.addEventListener('DOMContentLoaded', function() {
-    loadGallery();
-    setupFilters();
-    setupLightbox();
-});
-
-// Load gallery items from static JSON file
-async function loadGallery(filter = 'all', page = 1) {
-    try {
-        // Show loading state
-        const grid = document.getElementById('gallery-grid');
-        grid.innerHTML = '<div class="loading">Loading gallery...</div>';
-
-        // Fetch data from static JSON file
-        const response = await fetch('data/gallery.json');
-        if (!response.ok) {
-            throw new Error('Failed to load gallery data');
-        }
-        const data = await response.json();
-
-        // Filter by category if needed
-        let filteredItems = data.data;
-        if (filter !== 'all') {
-            const capitalizedFilter = filter.charAt(0).toUpperCase() + filter.slice(1);
-            filteredItems = data.data.filter(item => item.category === capitalizedFilter);
-        }
-
-        // Apply pagination (client-side)
-        const startIndex = (page - 1) * itemsPerPage;
-        const endIndex = startIndex + itemsPerPage;
-        const paginatedItems = filteredItems.slice(startIndex, endIndex);
-
-        // Render gallery items
-        renderGallery(paginatedItems);
-        
-        // Update pagination if needed
-        if (filteredItems.length > itemsPerPage) {
-            renderPagination(filteredItems.length, page, itemsPerPage);
-        } else {
-            // Clear pagination if not needed
-            const paginationContainer = document.getElementById('pagination');
-            if (paginationContainer) {
-                paginationContainer.innerHTML = '';
-            }
-        }
-
-    } catch (error) {
-        console.error('Error loading gallery:', error);
-        document.getElementById('gallery-grid').innerHTML = 
-            '<div class="error">Failed to load gallery. Please try again later.</div>';
+{
+  "data": [
+    {
+      "id": "sapphire-royal-blue-52",
+      "title": "Royal Blue Sapphire - 5.2ct",
+      "description": "Exceptional Ceylon blue sapphire with vivid cornflower blue color. Eye-clean clarity, excellent cut proportions. Certificate available upon request.",
+      "category": "Sapphires",
+      "image_url": "https://sspark.genspark.ai/cfimages?u1=Qnt2eB%2Bg%2BJ9q9Jgfy%2FFDU67y%2Bj2hML%2FxTphFBokf2ZIeGXfl1jw2VtDpBh1CLmevA5yw1iZGW%2B84Ma0mlF0E%2Bvhb%2BzqrWDLDwJSXoMuCJ0vioCtOcDhKREZHtZASRSPMn3qbFylo2fkeFKJsQFtymO%2F4XFQZOQcsZx5G%2BfV6SGdVNZdmbUe4vTVqCNxtgLvQg22EkFey33p6sFPoC%2BI%3D&u2=1qZNJgR5T0392XVu&width=2560",
+      "status": "Available",
+      "weight": "5.2 carats",
+      "origin": "Sri Lanka (Ceylon)",
+      "created_at": 1738368000000
+    },
+    {
+      "id": "sapphire-pink-38",
+      "title": "Pink Sapphire - 3.8ct",
+      "description": "Stunning padparadscha-tone pink sapphire. Natural color, no heat treatment. Rare and highly collectible specimen from Rathnapura deposits.",
+      "category": "Sapphires",
+      "image_url": "https://sspark.genspark.ai/cfimages?u1=nKfrt5mH3YlswKd4DkHbbKmmK%2FYVtyrdZW0Xh83h8kobioVBK6ecry0p6E6nhTjSQiJerjIfiorUxlwAO4HeTuAKNy8VgC7t57JBOs%2BXZygzwZnKm8iE4bCl%2BASWcKnfw7c4xrzTSK7JvPoWBdFS9dykzC6gH5Mpli%2F2%2BPqglinXC4A8XjlalwElkAGH5XlvIJaWWYwPoy9f3Dmv&u2=npxh%2BSLiYAWQLYFX&width=2560",
+      "status": "Available",
+      "weight": "3.8 carats",
+      "origin": "Sri Lanka",
+      "created_at": 1738367000000
+    },
+    {
+      "id": "sapphire-yellow-65",
+      "title": "Yellow Sapphire - 6.5ct",
+      "description": "Vibrant golden yellow sapphire with excellent saturation. Clean stone, superb luster. Ideal for jewelry manufacturing or collection.",
+      "category": "Sapphires",
+      "image_url": "https://sspark.genspark.ai/cfimages?u1=oc9BwoKOtovfG4Fd0NQIhn2M76%2BV9kuwmd2OGPI9GVGXXXmLAzkviZ0iZqXwdR3%2FXk%2FhnyyfZ0lNV0bRPPgCcKc4lt%2BuOraKK1B7UFeU6KXqnCWMK1JktEnTPnUlBKD6sCXhQfRkFg8G9SJfe0qSkX1a3X1BXm6%2B%2B3HRMH53oWC0FCYI4T0B1KuDNEG%2BcsgnZpqRdMYuxJFFhQeA%2Bx0%3D&u2=w8BYDvYvarVfsemC&width=2560",
+      "status": "Reserved",
+      "weight": "6.5 carats",
+      "origin": "Sri Lanka",
+      "created_at": 1738366000000
+    },
+    {
+      "id": "ruby-42",
+      "title": "Ruby - 4.2ct",
+      "description": "Deep pigeon blood red ruby with excellent transparency. Minor inclusions typical of natural Burma-type material. Heat treated.",
+      "category": "Rubies",
+      "image_url": "https://sspark.genspark.ai/cfimages?u1=ROsF2V2H50n2Q7lsPOD6x%2BGwgD%2FUIFJnodNCMH3s%2FqIN0z5QLZc79u53qVfr30Cep%2F7fglypnCa2%2BA1WIWIYdFXq%2B5WnZOqMDyVCemvAs3DVFfiDdU2rJPKtxFE21BygR47GUt%2BcC%2BaDnJgfXBEtIWr9iTMgkUuXf7XdExn%2Fv9ao9IdDzuJN%2FTj7mA4Zswj8skFmaDFvR5pkNkn%2B6T%2FO8rUatqxgHdZTisUJTlaM%2BiDunBOQ3p9iSsAhoPic6%2FlQyeU7RTkLt7VNWZVzpm4l%2Fy76feE8%2FMr%2FzKhG&u2=LX3fU8CSY2mLWphH&width=2560",
+      "status": "Available",
+      "weight": "4.2 carats",
+      "origin": "Myanmar (Burma)",
+      "created_at": 1738365000000
+    },
+    {
+      "id": "emerald-29",
+      "title": "Emerald - 2.9ct",
+      "description": "Colombian emerald with vivid green color. Minor garden typical of natural emeralds. Oil treatment only, no resin filling.",
+      "category": "Emeralds",
+      "image_url": "https://sspark.genspark.ai/cfimages?u1=Qji594EpGCByh1xGnZmrwg6r49%2F9Jf55PAL13B%2Fo3IQSbZAloLsHXOhFvexX6QJcEzuB8VOKewXSB62bcCpTEzTbripDjqTQE%2F2iC%2FmITDB53qAoR8e10L3bRSvAc%2B2ui4oS9kk5YA%2BoaSTJy2NBPf3GhpNuYR%2F4RTsp%2Fg3tNdbeNmGD8rAbWIHcL1IO4MsfTu4WSHwObmxi50d0aoOSwX9dgAmIl1rMuoztSod1RbQqH7SZYl1u1v4RgkWFigruj5yy4opEydMCexaPmJ7RIVBDis5hjsOEskW0cR9pNRTyJkyp7CWpP9%2B%2BRQc%3D&u2=ZO3kM%2FN%2BG78SrwR7&width=2560",
+      "status": "Available",
+      "weight": "2.9 carats",
+      "origin": "Colombia",
+      "created_at": 1738364000000
+    },
+    {
+      "id": "sapphire-blue-71",
+      "title": "Blue Sapphire - 7.1ct",
+      "description": "Large royal blue sapphire with excellent color saturation. VS clarity, precision cut. Suitable for high-end jewelry or investment.",
+      "category": "Sapphires",
+      "image_url": "https://sspark.genspark.ai/cfimages?u1=Qnt2eB%2Bg%2BJ9q9Jgfy%2FFDU67y%2Bj2hML%2FxTphFBokf2ZIeGXfl1jw2VtDpBh1CLmevA5yw1iZGW%2B84Ma0mlF0E%2Bvhb%2BzqrWDLDwJSXoMuCJ0vioCtOcDhKREZHtZASRSPMn3qbFylo2fkeFKJsQFtymO%2F4XFQZOQcsZx5G%2BfV6SGdVNZdmbUe4vTVqCNxtgLvQg22EkFey33p6sFPoC%2BI%3D&u2=1qZNJgR5T0392XVu&width=2560",
+      "status": "Sold",
+      "weight": "7.1 carats",
+      "origin": "Sri Lanka",
+      "created_at": 1738363000000
+    },
+    {
+      "id": "mixed-lot-124",
+      "title": "Mixed Lot - 5 Sapphires",
+      "description": "Collection of 5 natural sapphires in blue, yellow, and pink. Total weight 12.4ct. Ideal for jewelry manufacturing. Individual specifications available.",
+      "category": "Mixed",
+      "image_url": "https://sspark.genspark.ai/cfimages?u1=yKBRDI0snRUVyVVZvNtFWn1QK8EIVm33Jt8uz551BUNHG3omCYzDlhuWYoaoK3NPBgDwiGBgrjKlnZHIAJX19gHppx4%2Fg71DWw2bgKCyDwPAJMlJRYrHZx%2FayKH4m3A6PPRpBDuR61PIaBU3%2BBDUyznwvduG%2BIzWK%2B1ngtoM7eZlM9rj5wLozes7Ob1TuGxyj2BXyZ9xOkkaomU%2FQe54hsFrul874Zv1B03bkxptvL2Z1Jw%2FACGrGA%3D%3D&u2=7%2B3W8HBAG2INNNEb&width=2560",
+      "status": "Available",
+      "weight": "12.4 carats total",
+      "origin": "Sri Lanka",
+      "created_at": 1738362000000
+    },
+    {
+      "id": "star-ruby-83",
+      "title": "Star Ruby - 8.3ct",
+      "description": "Natural star ruby with sharp 6-ray star effect. Cabochon cut, deep red body color. Rare collector's piece from Myanmar deposits.",
+      "category": "Rubies",
+      "image_url": "https://sspark.genspark.ai/cfimages?u1=guctrh32%2Fc9BRWj6n%2F6eQX1p43nTNjcPBDT4G%2FcI9SkBsOPmKnnP3qN41yT42ZZXVoEZUSd19D3tW2EfNYrSrXotA7cjziazLeS6YWt9qj0pfsg4MM8dF5WdDCj1efMm63cQkIzWeVlxOIVric9yMgGlFDC8sJEhOqnRa0PamdzELjFrEYvrttYlRwuH5PZMHM%2Fi3rID%2FPEDQ%2FxqJNKAKZ361McgLKw%2FYMlRNqsEIHc%3D&u2=%2FuraM%2BHUz3KSRU6K&width=2560",
+      "status": "Reserved",
+      "weight": "8.3 carats",
+      "origin": "Myanmar",
+      "created_at": 1738361000000
+    },
+    {
+      "id": "sapphire-light-blue-47",
+      "title": "Light Blue Sapphire - 4.7ct",
+      "description": "Pastel blue Ceylon sapphire with exceptional clarity. Natural color, no heat. Perfect for delicate jewelry designs.",
+      "category": "Sapphires",
+      "image_url": "https://sspark.genspark.ai/cfimages?u1=EX%2F6dvSs7Hm8k15QmRjsYcE%2BCrww6dP%2FrlugHzCOR%2BTp98%2FQCEPGd4x9fJ0NWCvQV8i18YHD7WeTXMYdnJLZx%2BMXqZGcJCPYd7esABnsPCphPxjBbAlCggNf6vUTJeNGj26txV0G0qhizqqidQFQ7zvJvn4TdtWdT4lJbSvrkefH5Vd%2BWHgPXU6GGMwcwToIGXLV3TzEDDfcEEpPzmlU3t%2FqEb%2BHpFOYAI%2FbEhYR4xxOChzJK%2BZq7a8KuGtxUUDg%2FdPZmmbgeI2WPjIHtzce0BSEZ0Wk6Ad5deTunUKX5yRC3AqVuZimLrasCu%2B7SvAM8gYuPokrRprYmm5OLL7XfaGn90LmbRuaJx5QIM%2BuirkIk8F9jpPBou2vxF%2FlO2mcFQ%3D%3D&u2=5eFGcGBnNxUtMggb&width=2560",
+      "status": "Available",
+      "weight": "4.7 carats",
+      "origin": "Sri Lanka",
+      "created_at": 1738360000000
     }
-}
-
-// Render gallery items in grid
-function renderGallery(items) {
-    const grid = document.getElementById('gallery-grid');
-    
-    if (!items || items.length === 0) {
-        grid.innerHTML = '<div class="no-items">No gemstones found in this category.</div>';
-        return;
-    }
-
-    grid.innerHTML = items.map(item => `
-        <div class="gallery-item" data-category="${item.category}">
-            <div class="gallery-image-container">
-                <img 
-                    src="${item.image_url}" 
-                    alt="${item.title}"
-                    loading="lazy"
-                    onclick="openLightbox('${item.image_url}', '${item.title}', '${item.description}', '${item.status}')"
-                >
-                <div class="gallery-overlay">
-                    <h3>${item.title}</h3>
-                    <p class="category">${formatCategory(item.category)}</p>
-                </div>
-            </div>
-            <div class="gallery-info">
-                <h4>${item.title}</h4>
-                <p class="status-badge status-${item.status.toLowerCase()}">${item.status}</p>
-                <p class="description">${truncateText(item.description, 80)}</p>
-            </div>
-        </div>
-    `).join('');
-}
-
-// Setup category filters
-function setupFilters() {
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    
-    filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // Remove active class from all buttons
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            
-            // Add active class to clicked button
-            this.classList.add('active');
-            
-            // Get filter value
-            const filter = this.getAttribute('data-filter');
-            currentFilter = filter;
-            currentPage = 1;
-            
-            // Load filtered gallery
-            loadGallery(filter, currentPage);
-        });
-    });
-}
-
-// Lightbox functionality
-function openLightbox(imageUrl, title, description, status) {
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-    const lightboxTitle = document.getElementById('lightbox-title');
-    const lightboxDesc = document.getElementById('lightbox-desc');
-    const lightboxStatus = document.getElementById('lightbox-status');
-    
-    lightboxImg.src = imageUrl;
-    lightboxTitle.textContent = title;
-    lightboxDesc.textContent = description;
-    lightboxStatus.textContent = status;
-    lightboxStatus.className = `lightbox-status status-${status.toLowerCase()}`;
-    
-    lightbox.classList.add('active');
-    document.body.style.overflow = 'hidden'; // Prevent background scroll
-}
-
-function closeLightbox() {
-    const lightbox = document.getElementById('lightbox');
-    lightbox.classList.remove('active');
-    document.body.style.overflow = ''; // Restore scroll
-}
-
-function setupLightbox() {
-    // Close on X button
-    document.querySelector('.lightbox-close')?.addEventListener('click', closeLightbox);
-    
-    // Close on background click
-    document.getElementById('lightbox')?.addEventListener('click', function(e) {
-        if (e.target === this) {
-            closeLightbox();
-        }
-    });
-    
-    // Close on ESC key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            closeLightbox();
-        }
-    });
-}
-
-// Pagination rendering
-function renderPagination(total, currentPage, itemsPerPage) {
-    const totalPages = Math.ceil(total / itemsPerPage);
-    const paginationContainer = document.getElementById('pagination');
-    
-    if (!paginationContainer || totalPages <= 1) return;
-    
-    let paginationHTML = '<div class="pagination-controls">';
-    
-    // Previous button
-    if (currentPage > 1) {
-        paginationHTML += `<button onclick="changePage(${currentPage - 1})" class="pagination-btn">Previous</button>`;
-    }
-    
-    // Page numbers
-    for (let i = 1; i <= totalPages; i++) {
-        if (i === currentPage) {
-            paginationHTML += `<button class="pagination-btn active">${i}</button>`;
-        } else if (i === 1 || i === totalPages || (i >= currentPage - 1 && i <= currentPage + 1)) {
-            paginationHTML += `<button onclick="changePage(${i})" class="pagination-btn">${i}</button>`;
-        } else if (i === currentPage - 2 || i === currentPage + 2) {
-            paginationHTML += `<span class="pagination-dots">...</span>`;
-        }
-    }
-    
-    // Next button
-    if (currentPage < totalPages) {
-        paginationHTML += `<button onclick="changePage(${currentPage + 1})" class="pagination-btn">Next</button>`;
-    }
-    
-    paginationHTML += '</div>';
-    paginationContainer.innerHTML = paginationHTML;
-}
-
-function changePage(page) {
-    currentPage = page;
-    loadGallery(currentFilter, currentPage);
-    
-    // Scroll to top of gallery
-    document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
-}
-
-// Utility functions
-function formatCategory(category) {
-    return category
-        .split('_')
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(' ');
-}
-
-function truncateText(text, maxLength) {
-    if (text.length <= maxLength) return text;
-    return text.substring(0, maxLength) + '...';
-}
-
-// Request availability for specific gemstone
-function requestGemstone(title) {
-    // Pre-fill the contact form with gemstone title
-    const modal = document.getElementById('contact-modal');
-    const messageField = document.getElementById('contact-message');
-    
-    if (messageField) {
-        messageField.value = `I am interested in: ${title}\n\nPlease provide availability and pricing details.`;
-    }
-    
-    // Open contact modal
-    modal?.classList.add('active');
+  ],
+  "total": 9,
+  "page": 1,
+  "limit": 9
 }
